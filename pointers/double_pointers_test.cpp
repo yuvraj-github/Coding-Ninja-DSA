@@ -13,9 +13,18 @@ int main()
     cout << a << " " << b << endl;
     cout << *p << endl; */
 
+    /*
     int a = 100;
     int *p = &a;
     int **q = &p;
     int b = (**q)++ + 4;
+    cout << a << " " << b << endl; */
+
+    int a = 100;
+    int *p = &a;
+    int **q = &p;
+    int b = (**q)++;
+    int *r = *q;
+    (*r)++;
     cout << a << " " << b << endl;
 }
