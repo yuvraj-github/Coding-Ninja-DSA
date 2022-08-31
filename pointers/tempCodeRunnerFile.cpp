@@ -1,21 +1,24 @@
 #include <iostream>
 using namespace std;
 
+void Q(int z)
+{
+    z += z;
+    cout << z << " ";
+}
+
+void P(int *y)
+{
+    int x = *y + 2;
+    Q(x);
+    *y = x - 1;
+    cout << x << " ";
+}
+
 int main()
 {
-    /*
-    int a = 10;
-    int *p = &a;
-    int **q = &p;
-    int b = 20;
-    *q = &b;
-    (*p)++;
-    cout << a << " " << b << endl;
-    cout << *p << endl; */
-
-    int a = 100;
-    int *p = &a;
-    int **q = &p;
-    int b = (**q)++ + 4;
-    cout << a << " " << b << endl;
+    int x = 5;
+    P(&x);
+    cout << x;
+    return 0;
 }
