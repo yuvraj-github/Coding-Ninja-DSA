@@ -1,3 +1,10 @@
+/**
+ * 
+ * Sample Input 1 : 123
+ * 
+ * Sample Output 1: 5
+ **/
+
 #include <iostream>
 using namespace std;
 

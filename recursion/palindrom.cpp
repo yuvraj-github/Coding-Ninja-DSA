@@ -1,3 +1,10 @@
+/** 
+ * 
+ * Sample Input 1 : reacecar
+ * 
+ * Sample Output 1: true
+ **/
+
 #include <iostream>
 #include <string.h>
 using namespace std;

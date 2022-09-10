@@ -1,3 +1,10 @@
+/** 
+ * 
+ * Sample Input 1 : xpix
+ * 
+ * Sample Output 1: x3.14x
+ **/
+
 #include <iostream>
 #include <string.h>
 using namespace std;

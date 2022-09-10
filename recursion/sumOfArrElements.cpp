@@ -1,3 +1,10 @@
+/**
+ * 
+ * Sample Input 1 : 2 3 1
+ * 
+ * Sample Output 1: 6
+ **/
+
 #include <iostream>
 using namespace std;
 

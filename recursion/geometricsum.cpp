@@ -1,5 +1,12 @@
 /** 1+1/2+1/4+ 1/8.... **/
 
+/**
+ * 
+ * Sample Input 1 : 1+1/2+1/4+1/8
+ * 
+ * Sample Output 1: 1.875
+ **/
+
 #include <iostream>
 #include <math.h>
 using namespace std;

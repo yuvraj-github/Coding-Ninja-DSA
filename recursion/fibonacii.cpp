@@ -1,3 +1,10 @@
+/**
+ * 
+ * Sample Input 1 : 5
+ * 
+ * Sample Output 1: 0 1 1 2 3
+ **/
+
 #include <iostream>
 using namespace std;
 int fib(int n)
