@@ -1,3 +1,10 @@
+/** 
+ * It is based on divide and conquer method.
+ * 
+ * Time complexity: O(nlogn). 
+ * 
+ **/
+
 #include <iostream>
 using namespace std;
 

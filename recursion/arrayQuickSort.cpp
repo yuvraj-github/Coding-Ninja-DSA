@@ -21,7 +21,7 @@ int partition(int input[], int si, int ei)
 {
     int pivot = input[ei];
     int i = si - 1;
-    for (int j = si; j < ei - 1; j++)
+    for (int j = si; j < ei; j++)
     {
         if (input[j] < pivot)
         {
@@ -29,22 +29,23 @@ int partition(int input[], int si, int ei)
             swap(input, i, j);
         }
     }
-    swap(input, i + 1, ei);
-    return i + 1;
+    swap(input, i+1, ei);
+    return i+1;
 }
 
 void quickSort(int input[], int start, int end)
 {
     // your code goes here
-    if (start < end)
+    if (start >= end)
     {
-        int pivIndex = partition(input, start, end);
-        quickSort(input, start, pivIndex - 1);
-        quickSort(input, pivIndex + 1, end);
+        return;
     }
+    int pivIndex = partition(input, start, end);
+    quickSort(input, start, pivIndex - 1);
+    quickSort(input, pivIndex + 1, end);
 }
 void quickSort(int input[], int size)
-{
+{    
     if (size <= 1)
     {
         return;
