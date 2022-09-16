@@ -7,14 +7,14 @@ int performBinarySearch(int input[], int si, int ei, int element)
     {
         return -1;
     }
-    int mid = (si + ei) / 2;
+    int mid = si + (ei-si) / 2;
     if (element < input[mid])
     {
-        performBinarySearch(input, si, mid - 1, element);
+        performBinarySearch(input, si, mid, element);
     }
     else if (element > input[mid])
     {
-        performBinarySearch(input, mid + 1, ei, element);
+        performBinarySearch(input, mid+1, ei, element);
     }
     else
     {
@@ -29,7 +29,7 @@ int binarySearch(int input[], int size, int element)
     {
         return -1;
     }
-    int output = performBinarySearch(input, 0, size - 1, element);
+    int output = performBinarySearch(input, 0, size-1, element);
     return output;
 }
 

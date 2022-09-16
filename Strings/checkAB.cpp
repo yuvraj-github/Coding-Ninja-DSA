@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 bool checkAB(char input[])
 {
     // Write your code here
@@ -11,5 +14,19 @@ bool checkAB(char input[])
         return checkAB(input+2);
     } else {
         return false;
+    }
+}
+int main()
+{
+    char input[100];
+    cin >> input;
+    bool checkABOccurence = checkAB(input);
+    if (checkABOccurence)
+    {
+        cout << "true" << endl;
+    }
+    else
+    {
+        cout << "false" << endl;
     }
 }
