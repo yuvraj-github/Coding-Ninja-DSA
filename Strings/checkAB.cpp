@@ -7,14 +7,16 @@ bool checkAB(char input[])
     if (input[0] == '\0')
     {
         return true;
-    }   
-    if(input[0] == 'a') {
-        return checkAB(input+1);
-    } else if(input[0] == 'b' && input[1] == 'b' && (input[2] == 'a' || input[2] == '\0')) {
-        return checkAB(input+2);
-    } else {
+    }
+    if (input[0] != 'a')
+    {
         return false;
     }
+    if (input[1] == 'b' && input[2] == 'b')
+    {
+        return checkAB(input + 3);
+    }
+    return checkAB(input + 1);
 }
 int main()
 {
