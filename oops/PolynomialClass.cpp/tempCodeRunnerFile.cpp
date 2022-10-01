@@ -56,44 +56,45 @@ int main()
         result = first + second;
         result.print();
         break;
-        //     // Subtract
-        // case 2:
-        //     result = first - second;
-        //     result.print();
-        //     break;
-        //     // Multiply
-        // case 3:
-        //     result = first * second;
-        //     result.print();
-        //     break;
+    // Subtract
+    case 2:
+        result = first - second;
+        result.print();
+        break;
+        // Multiply
+    case 3:
+        result = first * second;
+        result.print();
+        break;
 
-        // case 4: // Copy constructor
-        // {
-        //     Polynomial third(first);
-        //     if (third.degCoeff == first.degCoeff)
-        //     {
-        //         cout << "false" << endl;
-        //     }
-        //     else
-        //     {
-        //         cout << "true" << endl;
-        //     }
-        //     break;
-        //}
+    case 4: // Copy constructor
+    {
+        Polynomial third(first);
+        if (third.degCoeff == first.degCoeff)
+        {
+            cout << "false" << endl;
+        }
+        else
+        {
+            cout << "true" << endl;
+        }
+        break;
+    }
 
-        // case 5: // Copy assignment operator
-        // {
-        //     Polynomial fourth(first);
-        //     if (fourth.degCoeff == first.degCoeff)
-        //     {
-        //         cout << "false" << endl;
-        //     }
-        //     else
-        //     {
-        //         cout << "true" << endl;
-        //     }
-        //     break;
-        // }
+    case 5: // Copy assignment operator
+    {
+        Polynomial fourth;
+        fourth = first;
+        if (fourth.degCoeff == first.degCoeff)
+        {
+            cout << "false" << endl;
+        }
+        else
+        {
+            cout << "true" << endl;
+        }
+        break;
+    }
     }
 
     return 0;

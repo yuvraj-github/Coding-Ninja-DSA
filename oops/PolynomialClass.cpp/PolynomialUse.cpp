@@ -61,11 +61,11 @@ int main()
         result = first - second;
         result.print();
         break;
-        //     // Multiply
-        // case 3:
-        //     result = first * second;
-        //     result.print();
-        //     break;
+        // Multiply
+    case 3:
+        result = first * second;
+        result.print();
+        break;
 
     case 4: // Copy constructor
     {

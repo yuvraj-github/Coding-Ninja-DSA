@@ -100,6 +100,16 @@ public:
         }
         capacity = p.capacity;
     }
+    Polynomial operator*(Polynomial const &p) {
+        int newCapcity = capacity+p.capacity;
+        Polynomial p3(newCapcity);
+        for(int i=0; i<capacity; i++) {
+            for(int j=0; j<p.capacity; j++) {
+                p3.degCoeff[i+j] += degCoeff[i]*p.degCoeff[j];
+            }
+        }
+        return p3;
+    }
     void print()
     {
         for (int i = 0; i < capacity; i++)
@@ -110,5 +120,5 @@ public:
             }
         }
         cout << endl;
-    }   
+    }
 };
