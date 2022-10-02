@@ -35,19 +35,14 @@ void print(Node *head)
     }
     cout << endl;
 }
-int findLength(Node *temp, int count)
-{
-    if (temp == NULL)
-    {
-        return count;
-    }
-    return findLength(temp->next, count++);
-}
 int length(Node *head)
 {
     Node *temp = head;
-    int length = findLength(temp, 0);
-    return length;
+    if (temp == NULL)
+    {
+        return 0;
+    }
+    return 1 + length(temp->next);
 }
 int main()
 {
@@ -57,6 +52,5 @@ int main()
     {
         Node *head = takeInput();
         cout << length(head) << "\n";
-        // print(head);
     }
 }

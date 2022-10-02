@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
-#include "LengthOfLLRecur.cpp"
+#include "DeleteNode.cpp"
 
-Node *takeInput()
+Node *takeinput()
 {
     int data;
     cin >> data;
@@ -35,28 +35,36 @@ void print(Node *head)
     }
     cout << endl;
 }
-int findLength(Node *temp, int count)
+
+Node *deleteNodeRec(Node *head, int pos)
 {
-    if (temp == NULL)
+    // Write your code here
+    if (head == NULL)
     {
-        return count;
+        return head;
     }
-    return findLength(temp->next, count++);
-}
-int length(Node *head)
-{
-    Node *temp = head;
-    int length = findLength(temp, 0);
-    return length;
+    if (pos == 0)
+    {
+        Node *a = head;
+        head = head->next;
+        delete a;
+        return head;
+    }
+    head->next = deleteNodeRec(head->next, pos - 1);
 }
 int main()
 {
     int t;
     cin >> t;
+
     while (t--)
     {
-        Node *head = takeInput();
-        cout << length(head) << "\n";
-        // print(head);
+        Node *head = takeinput();
+        int pos;
+        cin >> pos;
+        head = deleteNodeRec(head, pos);
+        print(head);
     }
+
+    return 0;
 }

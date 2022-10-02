@@ -1,12 +1,13 @@
 #include <iostream>
 using namespace std;
-#include "LengthOfLLRecur.cpp"
+#include "InsertNodeRecur.cpp"
 
 Node *takeInput()
 {
     int data;
     cin >> data;
     Node *head = NULL, *tail = NULL;
+
     while (data != -1)
     {
         Node *newNode = new Node(data);
@@ -35,19 +36,20 @@ void print(Node *head)
     }
     cout << endl;
 }
-int findLength(Node *temp, int count)
-{
-    if (temp == NULL)
+Node *insertNode(Node *head, int pos, int data)
+{    
+    if (head == NULL)
     {
-        return count;
+        return head;
     }
-    return findLength(temp->next, count++);
-}
-int length(Node *head)
-{
-    Node *temp = head;
-    int length = findLength(temp, 0);
-    return length;
+    Node *newNode = new Node(data);
+    if (pos == 0)
+    {
+        newNode->next = head;
+        head = newNode;
+        return head;
+    }
+    head->next = insertNode(head->next, pos - 1, data);
 }
 int main()
 {
@@ -56,7 +58,9 @@ int main()
     while (t--)
     {
         Node *head = takeInput();
-        cout << length(head) << "\n";
-        // print(head);
+        int pos, data;
+        cin >> pos >> data;
+        head = insertNode(head, pos, data);
+        print(head);
     }
 }
