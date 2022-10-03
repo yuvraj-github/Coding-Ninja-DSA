@@ -35,7 +35,42 @@ void print(Node *head)
     }
     cout << endl;
 }
+int findLength(Node *head)
+{
+    Node *temp = head;
+    if (temp == NULL)
+    {
+        return 0;
+    }
+    return 1 + findLength(temp->next);
+}
 
+Node *appendLastNToFirst(Node *head, int n)
+{
+    // Write your code here
+    int count = findLength(head);
+    if (n < count && n!=0)
+    {
+        int k = count - n;
+        Node *prev = NULL;
+        Node *curr = head;
+        while (k > 0)
+        {
+            prev = curr;
+            curr = curr->next;
+            k--;
+        }
+        prev->next = NULL;
+        Node *temp = head;
+        head = curr;
+        while (curr->next != NULL)
+        {
+            curr = curr->next;
+        }
+        curr->next = temp;
+    }
+    return head;
+}
 int main()
 {
     int t;
@@ -43,6 +78,9 @@ int main()
     while (t--)
     {
         Node *head = takeInput();
+        int n;
+        cin >> n;
+        head = appendLastNToFirst(head, n);
         print(head);
     }
     return 0;
