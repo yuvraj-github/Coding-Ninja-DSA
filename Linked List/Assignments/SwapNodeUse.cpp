@@ -37,36 +37,48 @@ void print(Node *head)
 }
 Node *swapNodes(Node *head, int i, int j)
 {
-    // Write your code here
-    if (head == NULL)
+    if (i == j)
     {
         return head;
     }
-    Node *temp = head;
-    Node *a;
-    if (i == 0 && j > 0)
+    Node *currentNode = head, *prev = NULL;
+    Node *firstNode = NULL, *secondNode = NULL, *firstNodePrev = NULL, *secondNodePrev = NULL;
+    int pos = 0;
+    while (currentNode != NULL)
     {
-        a = temp;
-        Node *prev = NULL;
-        while (temp != NULL)
+        if (pos == i)
         {
-            if (i == j)
-            {
-                prev->next = a;
-                temp->next = a->next;
-                a->next = NULL;
-                head = temp;
-                return head;
-            }
-            else
-            {
-                prev = temp;
-                temp = temp->next;
-                i++;
-            }
+            firstNodePrev = prev;
+            firstNode = currentNode;
         }
-        return head;
+        else if (pos == j)
+        {
+            secondNodePrev = prev;
+            secondNode = currentNode;
+        }
+        prev = currentNode;
+        currentNode = currentNode->next;
+        pos++;
     }
+    if (firstNodePrev != NULL)
+    {
+        firstNodePrev->next = secondNode;
+    }
+    else
+    {
+        head = secondNode;
+    }
+    if (secondNodePrev != NULL)
+    {
+        secondNodePrev->next = firstNode;
+    }
+    else
+    {
+        head = firstNode;
+    }
+    Node *currentFirstNode = secondNode->next;
+    secondNode->next = firstNode->next;
+    firstNode->next = currentFirstNode;
     return head;
 }
 int main()

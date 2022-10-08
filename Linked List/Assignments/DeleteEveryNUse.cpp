@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#include "SwapNode.cpp"
+#include "DeleteEveryN.cpp"
 
 Node *takeinput()
 {
@@ -35,7 +35,7 @@ void print(Node *head)
     }
     cout << endl;
 }
-Node *swapNodes(Node *head, int i, int j)
+Node *skipMdeleteN(Node *head, int M, int N)
 {
     // Write your code here
     if (head == NULL)
@@ -43,30 +43,44 @@ Node *swapNodes(Node *head, int i, int j)
         return head;
     }
     Node *temp = head;
-    Node *a;
-    if (i == 0 && j > 0)
+    if (M == 0 && N != 0)
     {
-        a = temp;
-        Node *prev = NULL;
         while (temp != NULL)
         {
-            if (i == j)
+            for (int j = 0; j < N && temp != NULL; j++)
             {
-                prev->next = a;
-                temp->next = a->next;
-                a->next = NULL;
-                head = temp;
-                return head;
-            }
-            else
-            {
-                prev = temp;
+                Node *a = temp;
                 temp = temp->next;
-                i++;
+                head = temp;
+                delete a;
             }
         }
         return head;
     }
+    int i = 0;
+    Node *Prev = NULL;
+
+    while (temp != NULL)
+    {
+        if (i == M)
+        {
+            for (int j = 0; j < N && temp != NULL; j++)
+            {
+                Node *a = temp;
+                temp = temp->next;
+                delete a;
+            }
+            Prev->next = temp;
+            i = 0;
+        }
+        else
+        {
+            Prev = temp;
+            temp = temp->next;
+            i++;
+        }
+    }
+
     return head;
 }
 int main()
@@ -75,11 +89,10 @@ int main()
     cin >> t;
     while (t--)
     {
-        int i, j;
         Node *head = takeinput();
-        cin >> i;
-        cin >> j;
-        head = swapNodes(head, i, j);
+        int m, n;
+        cin >> m >> n;
+        head = skipMdeleteN(head, m, n);
         print(head);
     }
     return 0;
