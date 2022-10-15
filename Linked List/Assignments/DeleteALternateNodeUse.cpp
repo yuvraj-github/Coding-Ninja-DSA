@@ -34,20 +34,22 @@ void print(Node *head)
     }
     cout << endl;
 }
-void deleteAlternateNodes(Node *head) {
-    if(head == NULL || head->next == NULL) {
+void deleteAlternateNodes(Node *head)
+{
+    if (head == NULL)
         return;
-    }
-    Node *temp = head;
-    while (temp != NULL && temp->next != NULL)
+    Node *prev = head;
+    Node *node = head->next;
+    while (prev != NULL && node != NULL)
     {
-        Node *a= temp->next;
-        if(a->next != NULL) {
-            temp->next = a->next;           
-            delete a;
-        } 
-        temp = temp->next;      
-    }    
+        prev->next = node->next;
+        free(node);
+        prev = prev->next;
+        if (prev != NULL)
+        {
+            node = prev->next;
+        }
+    }
 }
 int main()
 {
