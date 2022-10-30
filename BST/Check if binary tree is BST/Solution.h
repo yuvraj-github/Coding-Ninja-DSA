@@ -9,7 +9,7 @@ bool isBSThelper(BinaryTreeNode<int> *root, int min, int max)
 	{
 		return false;
 	}
-	bool isleftok = isBSThelper(root->left, min, root->data);
+	bool isleftok = isBSThelper(root->left, min, root->data-1);
 	bool isrightok = isBSThelper(root->right, root->data, max);
 	return isleftok && isrightok;
 }
