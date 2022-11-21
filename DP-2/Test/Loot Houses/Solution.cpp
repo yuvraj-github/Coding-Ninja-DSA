@@ -47,7 +47,7 @@ int maxMoneyLootedMem(int *arr, int n)
     }
     return maxMoneyLootedMemHelper(arr, n, output);
 }
-// Brut force.
+// Brute force.
 int maxMoneyLooted(int *arr, int n)
 {
     if (n < 0)
