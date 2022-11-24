@@ -20,7 +20,7 @@ void printDFS(int **graph, bool *visited, int n, int sv)
 {
     vector<int> ans;
     printDFSHelper(graph, visited, n, sv, ans);
-   // sort(ans.begin(), ans.end());
+    sort(ans.begin(), ans.end());
     for (int i = 0; i < ans.size(); i++)
     {
         cout << ans[i] << " ";
